@@ -16,39 +16,26 @@ PokerHands::PokerHands(string player) {
     //player size = 14
 }
 
-void PokerHands::setCard(PokerHands hand){
-    for(int i = 0; i < hand.player.size(); i++){
-        hand.card = hand.player[i];
-        i = i+3;
-    }
-}
-
-void PokerHands::setRank(PokerHands hand){
-    
-}
-
-void PokerHands::setSuit(PokerHands hand){
-    
-}
-
 string PokerHands::getCard(){
     stringstream hand(player);
     string card1, card2, card3, card4, card5;
     while(!hand.eof()){
         getline(hand, card);
-        //for(int i = 0; i < card.size(); i++){
+        for(int i = 0; i < card.size(); i++){
             card1 = card.substr(0, card.find(' '));
             card2 = card.substr(3, card.find(' '));
             card3 = card.substr(6, card.find(' '));
             card4 = card.substr(9, card.find(' '));
             card5 = card.substr(12, card.find(' '));
-        //}
+        }
     }
     
     string allCards[5] = {card1, card2, card3, card4, card5};
-    for(int i = 0; i < 5; i++){
-        printf("card%d:[%s] ",i+1 , allCards[i].c_str());
-    }
+
+//    for(int i = 0; i < 5; i++){
+//        printf("card%d:[%s] ",i+1 , allCards[i].c_str());
+//    }
+
     return *allCards;
 }
 

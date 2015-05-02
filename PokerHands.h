@@ -11,9 +11,6 @@
 class PokerHands {
 public:
     PokerHands(std::string player); //takes a substring of every line of poker.txt
-    void setCard(PokerHands hand);
-    void setSuit(PokerHands hand);
-    void setRank(PokerHands hand);
     std::string getCard();    //takes the pokerHands object and substrings the playerhand for ever suit+rank
     std::string getSuit(); //takes a card and substring for every suit
     std::string getRank(); //takes a card and substring for every rank

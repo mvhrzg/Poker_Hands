@@ -40,15 +40,55 @@ string PokerHands::getCard(){
 }
 
 string PokerHands::getRank(){
-    return rank;
+    stringstream hand(player);
+    string rank1, rank2, rank3, rank4, rank5;
+    while(!hand.eof()){
+        getline(hand, rank);
+            rank1 = rank.substr(0, 1);
+            rank2 = rank.substr(3, 1);
+            rank3 = rank.substr(6, 1);
+            rank4 = rank.substr(9, 1);
+            rank5 = rank.substr(12, 1);
+    }
+    
+    string allRanks[5] = {rank1, rank2, rank3, rank4, rank5};
+
+//    for(int i = 0; i < 5; i++){
+//        printf("rank%d:[%s] ",i+1 , allRanks[i].c_str());
+//    }
+
+    return *allRanks;
 }
 
 string PokerHands::getSuit(){
-    return suit;
+    stringstream hand(player);
+    string suit1, suit2, suit3, suit4, suit5;
+    while(!hand.eof()){
+        getline(hand, suit);
+            suit1 = suit.substr(1, 1);
+            suit2 = suit.substr(4, 1);
+            suit3 = suit.substr(7, 1);
+            suit4 = suit.substr(10, 1);
+            suit5 = suit.substr(13, 1);
+    }
+    
+    string allSuits[5] = {suit1, suit2, suit3, suit4, suit5};
+
+//    for(int i = 0; i < 5; i++){
+//        printf("suit%d:[%s] ",i+1 , allSuits[i].c_str());
+//    }
+
+    return *allSuits;
+}
+
+bool PokerHands::flush(){
+    
+    return true
 }
 
 int PokerHands::value(){
     
+   
 }
 
 std::ostream &operator << (std::ostream &output, const PokerHands &op){

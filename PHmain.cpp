@@ -41,9 +41,13 @@ int main(int argc, char** argv) {
   
         cout << "P1: " << P1 << endl;
         P1.getCard();
+        P1.getRank();
+        P1.getSuit();
         cout << endl;
         cout << "P2: " << P2 << endl;
         P2.getCard();
+        P2.getRank();
+        P2.getSuit();
         cout << endl;
         
         

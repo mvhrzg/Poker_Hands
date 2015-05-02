@@ -8,6 +8,8 @@
 #include <string>
 #include <sstream>
 #include <fstream>
+//#include <iomanip>
+#include <cstdlib>
 #include "PokerHands.h"
 using namespace std;
 
@@ -35,29 +37,46 @@ string PokerHands::getCard(){
 //    for(int i = 0; i < 5; i++){
 //        printf("card%d:[%s] ",i+1 , allCards[i].c_str());
 //    }
-
-    return *allCards;
+    for(int i = 0; i < 5; i++){
+        return allCards[i];
+    }
 }
 
 string PokerHands::getRank(){
     stringstream hand(player);
     string rank1, rank2, rank3, rank4, rank5;
+    int rankvalue1, rankvalue2, rankvalue3, rankvalue4, rankvalue5;
     while(!hand.eof()){
         getline(hand, rank);
             rank1 = rank.substr(0, 1);
+            rankvalue1 = value(rank1);
             rank2 = rank.substr(3, 1);
+            rankvalue2 = value(rank2);
             rank3 = rank.substr(6, 1);
+            rankvalue3 = value(rank3);
             rank4 = rank.substr(9, 1);
+            rankvalue4 = value(rank4);
             rank5 = rank.substr(12, 1);
+            rankvalue5 = value(rank5);
     }
     
-    string allRanks[5] = {rank1, rank2, rank3, rank4, rank5};
-
+    //string allRanks[5] = {rank1, rank2, rank3, rank4, rank5};
+    int rankIndex[15];
+    //for(int i = 0; i < 15; i++){
+        rankIndex[rankvalue1]++;
+        rankIndex[rankvalue2]++;
+        rankIndex[rankvalue3]++;
+        rankIndex[rankvalue4]++;
+        rankIndex[rankvalue5]++;
+    //}
+    for(int i = 2; i < 15; i++){
+        printf("%d ", rankIndex[i]);
+    }
 //    for(int i = 0; i < 5; i++){
 //        printf("rank%d:[%s] ",i+1 , allRanks[i].c_str());
 //    }
 
-    return *allRanks;
+    return rank;
 }
 
 string PokerHands::getSuit(){
@@ -81,13 +100,48 @@ string PokerHands::getSuit(){
     return *allSuits;
 }
 
-bool PokerHands::flush(){
-    
-    return true
+int PokerHands::pairs(){
+    int pairs = 0;
+    string playerHand;
+    string allPairs[5];
+    string allIndices[5];
+    stringstream hand(player);
+    int j = 0;
+    while(!hand.eof()){
+        getline(hand, playerHand);
+        for(int i = 0; i < PokerHands::getRank().size(); i++){
+        }
+            
+    }
+//    for(int i = 0; i < 5; i++){
+//        printf("%s ", allPairs[i].c_str());
+//    }
+    return 0;//pairs;
 }
 
-int PokerHands::value(){
+bool PokerHands::flush(){
+    bool isFlush = false;
+    for(int i = 0; i < 5; i++){
+        if(getSuit()[0] == getSuit()[1] == getSuit()[2] == getSuit()[3] == getSuit()[4]){
+            printf("true");
+            isFlush = true;
+        }
+        else{
+            printf("false");
+            isFlush = false;
+        }
+    }
+    return isFlush;
+}
+
+int PokerHands::value(string card){
+    int val = atoi(card.c_str());
+    if(card.compare((const char*)('T'))==0) val = 10;
+    if(card.compare((const char*)('J'))==0) val = 11;
+    if(card.compare((const char*)('Q'))==0) val = 12;
+    if(card.compare((const char*)('K'))==0) val = 13;
     
+    return val;
    
 }
 

@@ -31,7 +31,6 @@ int main(int argc, char** argv) {
 //	If(P1.value > P2.value){ P1wins++}  needs method that computes hand value [Player1.value() in C++ is P1->valueMethodName()]  this is because when you make a new PokerHand, C++ returns a pointer.
 //	Print P1wins
     
-    
     while(!poker.eof()){
         getline(poker, inputLine);
         P1Hand = inputLine.substr(0, 14);
@@ -40,14 +39,11 @@ int main(int argc, char** argv) {
         PokerHands P2 = PokerHands(P2Hand);
   
         cout << "P1: " << P1 << endl;
-        P1.getCard();
+        //printf("%s ", P1.getRank().c_str());
         P1.getRank();
-        P1.getSuit();
+        //P1.pairs();
         cout << endl;
         cout << "P2: " << P2 << endl;
-        P2.getCard();
-        P2.getRank();
-        P2.getSuit();
         cout << endl;
         
         

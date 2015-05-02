@@ -15,7 +15,8 @@ public:
     std::string getSuit(); //takes a card and substring for every suit
     std::string getRank(); //takes a card and substring for every rank
     bool flush();
-    int value();
+    int pairs();
+    int value(std::string card);
     friend std::ostream &operator << (std::ostream &output, const PokerHands &op);
     
 private:

@@ -31,15 +31,10 @@ int main(int argc, char** argv) {
         PokerHands P2 = PokerHands(P2Hand);
   
         cout << "P1: " << P1 << endl;
-        P1.getRank();
-        P1.getSuit();
-        cout << endl;
         cout << "P2: " << P2 << endl;
-        P2.getRank();
-        P2.getSuit();
-        cout << endl;
-        int P2v = P2.value(P2.getCard());
+        
         int P1v = P1.value(P1.getCard());
+        int P2v = P2.value(P2.getCard());
         if(P1v > P2v){Player1wins++;}
         
     }        

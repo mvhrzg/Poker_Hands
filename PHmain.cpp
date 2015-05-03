@@ -38,8 +38,12 @@ int main(int argc, char** argv) {
         P2.getRank();
         P2.getSuit();
         cout << endl;
-    }        
+        int P2v = P2.value(P2.getCard());
+        int P1v = P1.value(P1.getCard());
+        if(P1v > P2v){Player1wins++;}
         
+    }        
+    printf("P1 wins %d times.", Player1wins);
     return 0;
 }
 
